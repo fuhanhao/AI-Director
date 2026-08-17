@@ -1,0 +1,26 @@
+# 本机临时文件与脚本
+_*
+.tmp_index.js
+AGENTS.md
+
+# 本机浏览器配置 / 输出数据（含项目缓存，不提交）
+drama_output/
+drama_profile/
+drama_profile2/
+
+# 真实 API Key 备份（严禁入库）
+KEYS.local.txt
+
+# 真实 key 的 web bundle 不入库，统一用脱敏模板
+deploy-backup/web-3.4.0-custom-v14/assets/index-D9jX3f3S.js
+
+# 旧版 web 备份（内部 bundle 含历史 key，不提交）
+deploy-backup/web-3.4.0-custom
+deploy-backup/web-3.4.0-custom-v*/
+!deploy-backup/web-3.4.0-custom-v14/
+deploy-backup/index-D9jX3f3S.original.js
+deploy-backup/sw.original.js
+
+# 系统文件
+Thumbs.db
+Desktop.ini

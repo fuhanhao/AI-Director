@@ -1,0 +1,62 @@
+services:
+  web:
+    # 本地已打补丁的镜像（解锁自定义模型，单窗口表单，移除商业版拦截，预置 4 个自用模型，视频切万相，内置/未知/云端回退模型全类型自动改用自定义模型，自动清理坏 key 与空 key 提供商，认证错误附带诊断，修复自定义视频模型导致的页面渲染崩溃，前端加版本参数强制刷新缓存），原始镜像见 backup/web-3.4.0-original
+    image: shiguang-director:web-v26
+    container_name: shiguang-director-web
+    ports:
+      - "3005:80"
+    depends_on:
+      - media-proxy
+      - new-api-proxy
+      - cutos-api
+      - dashscope-relay
+    restart: unless-stopped
+
+  dashscope-relay:
+    # 把阿里云百炼的原生生图/语音接口翻译成 OpenAI 兼容协议，
+    # 供网页里的自定义图片/配音模型直接调用（端口 8790）
+    image: shiguang-director:dashscope-relay-1.5
+    container_name: shiguang-director-dashscope-relay
+    environment:
+      RELAY_PORT: "8790"
+    ports:
+      - "8790:8790"
+    restart: unless-stopped
+
+  media-proxy:
+    image: shiguang-director:media-3.4.0
+    container_name: shiguang-director-media-proxy
+    environment:
+      MEDIA_PROXY_PORT: "8787"
+      # 允许代理火山(volces.com)与阿里云百炼(aliyuncs.com)的 HTTPS 媒体地址
+      MEDIA_PROXY_ALLOWED_HOSTS: "volces.com,aliyuncs.com"
+      MEDIA_PROXY_ALLOWED_PROTOCOLS: "https"
+      MEDIA_PROXY_TIMEOUT_MS: "120000"
+      MEDIA_PROXY_MAX_URL_LENGTH: "4096"
+      MEDIA_PROXY_CORS_ORIGIN: "*"
+    expose:
+      - "8787"
+    restart: unless-stopped
+
+  new-api-proxy:
+    image: shiguang-director:newapi-3.4.0
+    container_name: shiguang-director-new-api-proxy
+    environment:
+      NEW_API_PROXY_PORT: "8788"
+      NEW_API_ALLOWED_HOSTS: ""
+      NEW_API_ALLOW_PRIVATE_HOSTS: "false"
+    expose:
+      - "8788"
+    restart: unless-stopped
+
+
+  cutos-api:
+    image: shiguang-director:cutos-3.4.0
+    container_name: shiguang-director-cutos-api
+    environment:
+      CUTOS_API_PORT: "8789"
+      # 自用部署：注入百炼 key，让 CutOS 的配音/语音工具可直接调用百炼
+      DASHSCOPE_API_KEY: "REPLACE_DASHSCOPE_API_KEY"
+    expose:
+      - "8789"
+    restart: unless-stopped

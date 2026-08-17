@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <script>
+      (function(){
+        var t = localStorage.getItem('shiguang_theme');
+        if (t === null) { var oldT = localStorage.getItem('bigbanana_theme'); if (oldT !== null) { localStorage.setItem('shiguang_theme', oldT); localStorage.removeItem('bigbanana_theme'); t = oldT; } }
+        document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+      })();
+    </script>
+    <script>
+      /* 拾光导演 · 遗存清理（隐藏式）：
+         只对匹配“商业版/商业授权/邮件咨询/使用手册/立即购买/使用教程/充值/邀请”等
+         遗留入口的元素做 display:none 隐藏，绝不删除节点，避免破坏 React 渲染。 */
+      (function () {
+        var LEGACY_TEXT = [
+          '商业版 / 商业授权', '商业版/商业授权', '邮件咨询', '官网',
+          '使用手册', '立即购买', '使用教程', '打开账号站点',
+          'Buy now', 'Setup guide', 'User guide', 'Open account site',
+          '充值', '去充值', '邀请', '邀请码', '邀请链接', '邀请奖励', '去邀请'
+        ];
+        function norm(s) { return (s || '').replace(/\s+/g, ' ').trim(); }
+        function hide(el) { if (!el || el.__sg_hidden) return; el.__sg_hidden = true; el.style.display = 'none'; }
+        function clean() {
+          try {
+            var all = document.querySelectorAll('a,button,span');
+            var changed = [];
+            for (var i = 0; i < all.length; i++) {
+              var el = all[i];
+              if (!el || el.__sg_hidden) continue;
+              var txt = norm(el.textContent);
+              var href = (el.getAttribute && el.getAttribute('href')) || '';
+              var hit = false;
+              for (var j = 0; j < LEGACY_TEXT.length; j++) {
+                if (txt === LEGACY_TEXT[j]) { hit = true; break; }
+              }
+              if (hit || href.indexOf('mailto:') === 0 || href.indexOf('tree456.com') !== -1) {
+                hide(el);
+                changed.push(el);
+              }
+            }
+            /* 被隐藏项所在的容器若只剩“·”分隔符/无可见内容，则一并隐藏容器（如首页页脚那行） */
+            for (var m = 0; m < changed.length; m++) {
+              var p = changed[m].parentElement;
+              if (!p || p.id === 'root' || p === document.body) continue;
+              var kids = p.children;
+              var visibleKids = [];
+              for (var k = 0; k < kids.length; k++) {
+                var c = kids[k];
+                if (c.__sg_hidden) continue;
+                var ct = norm(c.textContent);
+                if (ct === '·') hide(c);
+                else if (ct !== '') visibleKids.push(c);
+              }
+              if (visibleKids.length === 0 && norm(p.innerText) === '') hide(p);
+            }
+          } catch (e) { /* 忽略 */ }
+        }
+        clean();
+        if (document.body) clean();
+        if (document.readyState !== 'loading') {
+          new MutationObserver(clean).observe(document.documentElement, { childList: true, subtree: true });
+          clean();
+        } else {
+          document.addEventListener('DOMContentLoaded', function () {
+            new MutationObserver(clean).observe(document.documentElement, { childList: true, subtree: true });
+            clean();
+          });
+        }
+        [0, 300, 1000, 2500, 5000].forEach(function (t) { setTimeout(clean, t); });
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="baidu-site-verification" content="codeva-XS9wd4bEAt" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Meta Tags -->
+    <title>拾光导演｜AI 漫剧制作工作台</title>
+    <meta name="title" content="拾光导演｜AI 漫剧制作工作台" />
+    <meta name="description" content="拾光导演 AI Director 面向可落地 AI漫剧、动态漫画和 AI短剧项目，提供剧本策划、角色资产、九宫格分镜、关键帧、视频合成与交付的本地制作工作台。" />
+    <meta name="keywords" content="AI漫剧,AI漫剧制作平台,动态漫画制作,AI短剧漫剧生成平台,九宫格分镜,角色一致性,小说改编,拾光导演" />
+    <meta name="author" content="拾光导演 Team" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="language" content="zh-CN" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <meta name="generator" content="拾光导演 AI Director" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:3005/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://localhost:3005/" />
+    <meta property="og:title" content="拾光导演｜AI 漫剧制作工作台" />
+    <meta property="og:description" content="面向可落地 AI漫剧和动态漫画项目的本地制作工作台：剧本策划、角色资产、九宫格分镜、关键帧与视频交付。" />
+    <meta property="og:image" content="http://localhost:3005/og-studio-overview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="900" />
+    <meta property="og:image:alt" content="拾光导演 AI Director 项目工作区界面截图" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="拾光导演" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://localhost:3005/" />
+    <meta name="twitter:title" content="拾光导演｜AI 漫剧制作工作台" />
+    <meta name="twitter:description" content="支持 AI漫剧从剧本策划、角色资产、九宫格分镜到视频交付的本地制作工作流。" />
+    <meta name="twitter:image" content="http://localhost:3005/og-studio-overview.png" />
+    <meta name="twitter:image:alt" content="拾光导演 AI Director 项目工作区界面截图" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=31" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png?v=31" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=31" />
+    <link rel="manifest" href="/manifest.webmanifest?v=31" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0A0C16" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F7F4EF" media="(prefers-color-scheme: light)" />
+    <meta name="msapplication-TileColor" content="#0A0C16" />
+    <meta name="msapplication-TileImage" content="/logo.png?v=31" />
+    <meta name="apple-mobile-web-app-title" content="拾光导演" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="拾光导演" />
+    <style>
+      .no-js-guide {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 56px 24px 72px;
+        font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        line-height: 1.7;
+        color: #1f1c18;
+      }
+
+      .no-js-shell {
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(91, 79, 216, 0.12), transparent 36%),
+          radial-gradient(circle at top right, rgba(232, 181, 74, 0.14), transparent 32%),
+          linear-gradient(180deg, #faf8f3 0%, #f0edf8 100%);
+      }
+
+      .no-js-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border: 1px solid rgba(31, 28, 24, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #4a3fc4;
+      }
+
+      .no-js-guide h1 {
+        margin: 18px 0 14px;
+        font-size: clamp(32px, 5vw, 54px);
+        line-height: 1.1;
+        color: #1f1c18;
+      }
+
+      .no-js-guide p {
+        margin: 0;
+        max-width: 820px;
+        font-size: 17px;
+        color: #48423a;
+      }
+
+      .no-js-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        margin-top: 28px;
+      }
+
+      .no-js-card {
+        padding: 22px;
+        border: 1px solid rgba(31, 28, 24, 0.08);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 20px 50px rgba(31, 28, 24, 0.08);
+      }
+
+      .no-js-card h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        color: #1f1c18;
+      }
+
+      .no-js-card p {
+        font-size: 15px;
+        color: #48423a;
+      }
+
+      .no-js-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .no-js-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: #5b4fd8;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    </style>
+
+    <!-- Structured Data: SoftwareApplication (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "拾光导演 AI Director",
+      "alternateName": ["拾光导演 故事工作台", "拾光导演 项目工作区", "AI漫剧制作工作台"],
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Video Production",
+      "operatingSystem": "Web Browser",
+      "description": "拾光导演 AI Director 是面向 AI漫剧、动态漫画、AI短剧和视觉预演项目的本地制作系统，支持剧本策划、角色资产、九宫格分镜、关键帧、视频合成和项目交付。",
+      "url": "http://localhost:3005/",
+      "installUrl": "http://localhost:3005/",
+      "image": "http://localhost:3005/og-studio-overview.png",
+      "screenshot": "http://localhost:3005/og-studio-overview.png",
+      "keywords": "AI漫剧, AI漫剧制作平台, 动态漫画制作, 九宫格分镜, 关键帧, 剪辑交付, 拾光导演",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "本地自用版",
+          "price": "0",
+          "priceCurrency": "CNY",
+          "availability": "https://schema.org/InStock"
+        }
+      ],
+      "creator": {
+        "@type": "Organization",
+        "name": "拾光导演 Team",
+        "url": "http://localhost:3005/"
+      },
+      "featureList": [
+        "可落地 AI漫剧项目工作流",
+        "结构化剧本策划与镜头设计",
+        "角色、场景、道具的视觉设定",
+        "九宫格预演与关键帧制作",
+        "项目资产沉淀与跨镜头复用",
+        "本地 IndexedDB 数据存储",
+        "时间轴实时预览",
+        "时间线交付与项目导出管理",
+        "适合连续内容的制作协同工作流",
+        "自接模型 API 自由配置"
+      ],
+      "softwareVersion": "1.0.0",
+      "inLanguage": ["zh-CN"],
+      "isAccessibleForFree": true
+    }
+    </script>
+
+    <!-- Structured Data: WebSite (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "拾光导演 AI Director",
+      "url": "http://localhost:3005/",
+      "description": "本地 AI漫剧与剧情影像工作区，聚焦剧本策划、角色资产、九宫格分镜、关键帧与视频交付。",
+      "inLanguage": "zh-CN",
+      "keywords": "AI漫剧, 拾光导演, 动态漫画制作, 九宫格分镜, 关键帧"
+    }
+    </script>
+
+    <!-- Structured Data: Organization (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "拾光导演 Team",
+      "url": "http://localhost:3005/",
+      "logo": "http://localhost:3005/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "local@localhost",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "拾光导演 AI Director 是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "拾光导演是一个面向剧情型短视频、动态叙事和视觉预演项目的本地工作区，提供剧本策划、视觉设定、镜头设计和剪辑交付能力。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "拾光导演 更适合什么类型的项目？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它更适合需要长期维护角色、场景和镜头上下文的项目，包括剧情型短视频、动态叙事、预演样片和连续内容制作。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么要先做镜头规划和关键帧？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先做镜头规划和关键帧，可以在生成视频前确认构图、动作与起止画面，减少镜头失控、角色漂移和返工成本。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "拾光导演 是否支持资产复用和九宫格预演？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持。你可以为角色、场景和道具沉淀参考资产，并用九宫格预演镜头，再把合适的格子或关键帧送去生成视频。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "拾光导演 AI Director 需要付费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "工具本身免费使用，项目数据保存在本地浏览器中。实际生成图片和视频时，需要配置可用的模型接口并按调用量消耗额度。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebPage (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "拾光导演｜AI 漫剧制作工作台",
+      "url": "http://localhost:3005/",
+      "description": "拾光导演 AI Director 提供 AI漫剧制作、动态漫画分镜、角色资产、关键帧与视频交付的一体化本地工作流。",
+      "inLanguage": "zh-CN",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "拾光导演 AI Director",
+        "url": "http://localhost:3005/"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles/base.css?v=31" />
+    <!-- 主题 CSS 放在内联样式之后，确保 [data-theme] 的变量优先级高于 :root 回退 -->
+    <link rel="stylesheet" href="/styles/theme-dark.css?v=31" />
+    <link rel="stylesheet" href="/styles/theme-light.css?v=31" />
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-D9jX3f3S.js?v=31"></script>
+  <link rel="modulepreload" crossorigin href="/assets/icons-CC3OaP0_.js">
+  <link rel="modulepreload" crossorigin href="/assets/motion-0yc2g3ly.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-YggY4CaN.css">
+</head>
+  <body>
+    <noscript>
+      <div class="no-js-shell">
+        <main class="no-js-guide">
+          <span class="no-js-badge">AI漫剧项目 / 动态漫画 / 剪辑交付</span>
+          <h1>拾光导演 AI Director</h1>
+          <p>
+            这是一个面向可落地 AI漫剧、动态漫画、AI短剧与视觉预演项目的本地工作区。它把剧本策划、角色资产、镜头设计、九宫格预演、关键帧和剪辑交付放进同一条工作流里，数据保存在本地浏览器中。
+          </p>
+          <div class="no-js-grid">
+            <section class="no-js-card">
+              <h2>剧本策划</h2>
+              <p>适合需要先理清情节节奏、镜头密度和段落结构的项目。</p>
+            </section>
+            <section class="no-js-card">
+              <h2>镜头设计</h2>
+              <p>适合需要关键帧控制、九宫格预演和多轮返修的连续镜头生产。</p>
+            </section>
+            <section class="no-js-card">
+              <h2>剪辑交付</h2>
+              <p>在导出前统一复查镜头状态、时间线素材和成片结果，减少后期返工。</p>
+            </section>
+            <section class="no-js-card">
+              <h2>自接模型</h2>
+              <p>支持自定义配置文本、图片、语音与视频模型 API，额度自己掌控。</p>
+            </section>
+          </div>
+          <div class="no-js-links">
+            <a href="/ai-short-drama-generator.html">查看 AI短剧页面</a>
+            <a href="/ai-motion-comic-generator.html">查看 AI漫剧页面</a>
+            <a href="/ai-storyboard-generator.html">查看 AI分镜页面</a>
+          </div>
+        </main>
+      </div>
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>

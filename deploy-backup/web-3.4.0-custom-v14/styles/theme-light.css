@@ -1,0 +1,104 @@
+/* 拾光导演 · 亮色主题 - 语义化颜色令牌（淡紫星夜 + 星夜蓝紫 + 星光金） */
+[data-theme="light"] {
+  --bg-base: #EFEBF8;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F4FC;
+  --bg-surface: #FDFCFF;
+  --bg-elevated: #F0ECF8;
+  --bg-deep: #E6E1F2;
+  --bg-sunken: #F6F2FB;
+  --bg-hover: #E4DEF2;
+  --border-primary: #E0DAEF;
+  --border-secondary: #C8BFE3;
+  --border-subtle: #ECE7F5;
+  --text-primary: #221E2E;
+  --text-secondary: #4A445C;
+  --text-tertiary: #6F6884;
+  --text-muted: #91899F;
+  --scrollbar-track: #E9E4F4;
+  --scrollbar-thumb: #C8BFE3;
+  --scrollbar-thumb-hover: #A79CCB;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(34, 30, 46, 0.08);
+  --nav-active-bg: rgba(228, 222, 242, 0.85);
+  --nav-hover-bg: rgba(228, 222, 242, 0.5);
+  --btn-primary-bg: #5B4FD8;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #4A3FC4;
+  --btn-primary-shadow: rgba(91, 79, 216, 0.2);
+  --btn-selected-bg: #E4DEF2;
+  --btn-selected-border: #E4DEF2;
+  --overlay-heavy: rgba(18, 14, 34, 0.62);
+  --overlay-medium: rgba(18, 14, 34, 0.42);
+  --overlay-light: rgba(18, 14, 34, 0.2);
+  --overlay-full: rgba(10, 8, 22, 0.88);
+  --overlay-border: rgba(0, 0, 0, 0.1);
+  --selection-bg: rgba(91, 79, 216, 0.16);
+  /* 主题强调色 (accent) - 星夜蓝紫 */
+  --accent: #5B4FD8;
+  --accent-hover: #4A3FC4;
+  --accent-muted: #7E75E4;
+  --accent-bg: rgba(91, 79, 216, 0.12);
+  --accent-bg-hover: rgba(91, 79, 216, 0.2);
+  --accent-border: rgba(91, 79, 216, 0.32);
+  --accent-text: #4A3FC4;
+  --accent-text-hover: #3A31A8;
+  --accent-on: #ffffff;
+  --accent-shadow: rgba(91, 79, 216, 0.22);
+  /* 辅助强调色 - 星光金 */
+  --accent-gold: #C9973C;
+  --accent-gold-hover: #B5842F;
+  --accent-gold-bg: rgba(201, 151, 60, 0.14);
+  --accent-gold-border: rgba(201, 151, 60, 0.34);
+  --accent-gold-text: #9A6E20;
+  --star-gradient: linear-gradient(135deg, #5B4FD8 0%, #8B5CF6 55%, #E8B54A 135%);
+  /* 开关/Toggle */
+  --toggle-active: #5B4FD8;
+  --toggle-inactive: var(--border-secondary);
+  --toggle-knob: #ffffff;
+  /* 状态色: 成功 */
+  --success: #16a34a;
+  --success-text: #15803d;
+  --success-bg: rgba(22, 163, 74, 0.08);
+  --success-border: rgba(22, 163, 74, 0.25);
+  /* 状态色: 错误/危险 */
+  --error: #dc2626;
+  --error-text: #b91c1c;
+  --error-bg: rgba(220, 38, 38, 0.06);
+  --error-border: rgba(220, 38, 38, 0.2);
+  --error-hover-bg: rgba(220, 38, 38, 0.08);
+  --error-hover-bg-strong: rgba(220, 38, 38, 0.15);
+  /* 状态色: 警告 */
+  --warning: #d97706;
+  --warning-text: #b45309;
+  --warning-bg: rgba(217, 119, 6, 0.08);
+  --warning-border: rgba(217, 119, 6, 0.25);
+  /* 状态色: 信息 */
+  --info: #2563eb;
+  --info-text: #1d4ed8;
+  --info-bg: rgba(37, 99, 235, 0.06);
+  --info-border: rgba(37, 99, 235, 0.2);
+  /* 辅助标记色: purple (视频提示词) */
+  --tag-purple: #7c3aed;
+  --tag-purple-bg: rgba(124, 58, 237, 0.08);
+  --tag-purple-border: rgba(124, 58, 237, 0.2);
+  --tag-purple-hover: rgba(124, 58, 237, 0.08);
+}
+
+/* 拾光导演 · 亮色背景：淡紫星夜 + 蓝紫/星光金柔光 */
+[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(91, 79, 216, 0.16), transparent 42%),
+    radial-gradient(circle at 88% 8%, rgba(232, 181, 74, 0.14), transparent 36%),
+    radial-gradient(circle at 75% 100%, rgba(124, 58, 237, 0.10), transparent 45%),
+    var(--bg-base);
+  background-attachment: fixed;
+}
+
+/* 覆盖首页/工作区根容器上的旧版硬编码琥珀渐变，统一为拾光导演星夜配色 */
+[data-theme="light"] #root > div {
+  background-image:
+    radial-gradient(circle at 50% -10%, rgba(91, 79, 216, 0.18), transparent 50%),
+    radial-gradient(circle at 10% 40%, rgba(91, 79, 216, 0.06), transparent 30%),
+    radial-gradient(circle at 90% 70%, rgba(232, 181, 74, 0.07), transparent 35%) !important;
+}

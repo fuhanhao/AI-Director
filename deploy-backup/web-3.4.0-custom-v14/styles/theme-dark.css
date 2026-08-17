@@ -1,0 +1,111 @@
+/* 拾光导演 · 暗色主题 - 语义化颜色令牌（深邃星夜 + 星辉蓝紫 + 星光金） */
+[data-theme="dark"] {
+  --bg-base: #070912;
+  --bg-primary: #0C0F1D;
+  --bg-secondary: #11152A;
+  --bg-surface: #131832;
+  --bg-elevated: #191F3C;
+  --bg-deep: #0A0D18;
+  --bg-sunken: #05070C;
+  --bg-hover: #242B4D;
+  --border-primary: #232A4B;
+  --border-secondary: #38406E;
+  --border-subtle: #1A2039;
+  --text-primary: #F5F6FC;
+  --text-secondary: #C7CCE4;
+  --text-tertiary: #989EC4;
+  --text-muted: #6F759A;
+  --scrollbar-track: #070912;
+  --scrollbar-thumb: #333B66;
+  --scrollbar-thumb-hover: #49538E;
+  --glass-bg: rgba(12, 15, 29, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --nav-active-bg: rgba(36, 43, 77, 0.6);
+  --nav-hover-bg: rgba(36, 43, 77, 0.34);
+  --btn-primary-bg: #8B82FF;
+  --btn-primary-text: #0A0C16;
+  --btn-primary-hover: #A49DFF;
+  --btn-primary-shadow: rgba(139, 130, 255, 0.25);
+  --btn-selected-bg: #E6E8F7;
+  --btn-selected-border: #E6E8F7;
+  --overlay-heavy: rgba(0, 0, 0, 0.8);
+  --overlay-medium: rgba(0, 0, 0, 0.6);
+  --overlay-light: rgba(0, 0, 0, 0.3);
+  --overlay-full: rgba(0, 0, 0, 0.95);
+  --overlay-border: rgba(255, 255, 255, 0.1);
+  --selection-bg: rgba(139, 130, 255, 0.3);
+  /* 主题强调色 (accent) - 星辉蓝紫 */
+  --accent: #8B82FF;
+  --accent-hover: #7A70F5;
+  --accent-muted: #A9A3FF;
+  --accent-bg: rgba(139, 130, 255, 0.16);
+  --accent-bg-hover: rgba(139, 130, 255, 0.26);
+  --accent-border: rgba(139, 130, 255, 0.34);
+  --accent-text: #B6B0FF;
+  --accent-text-hover: #D3CFFF;
+  --accent-on: #0A0C16;
+  --accent-shadow: rgba(139, 130, 255, 0.28);
+  /* 辅助强调色 - 星光金 */
+  --accent-gold: #E8B54A;
+  --accent-gold-hover: #F2C76A;
+  --accent-gold-bg: rgba(232, 181, 74, 0.14);
+  --accent-gold-border: rgba(232, 181, 74, 0.32);
+  --accent-gold-text: #F5D693;
+  --star-gradient: linear-gradient(135deg, #8B82FF 0%, #C084FC 50%, #E8B54A 135%);
+  /* 开关/Toggle */
+  --toggle-active: #8B82FF;
+  --toggle-inactive: var(--border-secondary);
+  --toggle-knob: #ffffff;
+  /* 状态色: 成功 */
+  --success: #34d399;
+  --success-text: #6ee7b7;
+  --success-bg: rgba(52, 211, 153, 0.12);
+  --success-border: rgba(52, 211, 153, 0.32);
+  /* 状态色: 错误/危险 */
+  --error: #f87171;
+  --error-text: #fca5a5;
+  --error-bg: rgba(248, 113, 113, 0.1);
+  --error-border: rgba(248, 113, 113, 0.3);
+  --error-hover-bg: rgba(127, 29, 29, 0.2);
+  --error-hover-bg-strong: rgba(127, 29, 29, 0.4);
+  /* 状态色: 警告 */
+  --warning: #fbbf24;
+  --warning-text: #fcd34d;
+  --warning-bg: rgba(251, 191, 36, 0.1);
+  --warning-border: rgba(251, 191, 36, 0.3);
+  /* 状态色: 信息 */
+  --info: #60a5fa;
+  --info-text: #93c5fd;
+  --info-bg: rgba(96, 165, 250, 0.1);
+  --info-border: rgba(96, 165, 250, 0.3);
+  /* 辅助标记色: purple (视频提示词) */
+  --tag-purple: #c084fc;
+  --tag-purple-bg: rgba(192, 132, 252, 0.1);
+  --tag-purple-border: rgba(192, 132, 252, 0.3);
+  --tag-purple-hover: rgba(192, 132, 252, 0.1);
+}
+
+/* 拾光导演 · 暗色背景：星夜 + 星辉蓝紫/星光金星云 */
+[data-theme="dark"] body {
+  background:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(245, 246, 252, 0.55), transparent 100%),
+    radial-gradient(1.5px 1.5px at 28% 64%, rgba(245, 246, 252, 0.4), transparent 100%),
+    radial-gradient(1.5px 1.5px at 44% 12%, rgba(232, 181, 74, 0.5), transparent 100%),
+    radial-gradient(1.5px 1.5px at 61% 38%, rgba(245, 246, 252, 0.45), transparent 100%),
+    radial-gradient(1.5px 1.5px at 76% 72%, rgba(192, 132, 252, 0.5), transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 20%, rgba(245, 246, 252, 0.4), transparent 100%),
+    radial-gradient(1.5px 1.5px at 18% 88%, rgba(232, 181, 74, 0.4), transparent 100%),
+    radial-gradient(circle at 15% 0%, rgba(139, 130, 255, 0.14), transparent 42%),
+    radial-gradient(circle at 85% 10%, rgba(232, 181, 74, 0.10), transparent 36%),
+    radial-gradient(circle at 70% 100%, rgba(192, 132, 252, 0.10), transparent 45%),
+    var(--bg-base);
+  background-attachment: fixed;
+}
+
+/* 覆盖首页/工作区根容器上的旧版硬编码渐变，统一为拾光导演星夜配色 */
+[data-theme="dark"] #root > div {
+  background-image:
+    radial-gradient(circle at 50% -10%, rgba(139, 130, 255, 0.18), transparent 50%),
+    radial-gradient(circle at 10% 40%, rgba(139, 130, 255, 0.06), transparent 30%),
+    radial-gradient(circle at 90% 70%, rgba(232, 181, 74, 0.07), transparent 35%) !important;
+}

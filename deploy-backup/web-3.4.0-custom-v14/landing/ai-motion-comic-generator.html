@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI漫剧制作平台与本地部署版：可落地动态漫画项目 - 拾光导演 AI Director</title>
+    <meta
+      name="description"
+      content="拾光导演 AI Director 适合可落地 AI漫剧制作、动态漫画创作和小说改编项目，支持角色定妆、九宫格分镜、关键帧、视频合成与交付；本地版提供本地部署、私有化部署、二次开发、可自用与可自用落地。"
+    />
+    <meta
+      name="keywords"
+      content="AI漫剧,AI漫剧制作平台,AI漫剧源码,AI漫剧系统,本地部署版,本地部署,私有化部署,二次开发,可自用,可自用,AI短剧漫剧生成平台,动态漫画制作,九宫格分镜,角色一致性,小说改编"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="http://localhost:3005/ai-motion-comic-generator.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://localhost:3005/ai-motion-comic-generator.html" />
+    <meta property="og:title" content="AI漫剧制作平台与本地部署版：可落地动态漫画项目" />
+    <meta
+      property="og:description"
+      content="面向可落地 AI漫剧项目的制作系统，覆盖角色资产、九宫格分镜、关键帧和视频交付；本地版支持本地部署、私有化部署与二次开发。"
+    />
+  <meta property="og:image" content="http://localhost:3005/og-studio-overview.png" />
+    <meta property="og:image:alt" content="拾光导演 AI Director 项目工作区界面截图" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI漫剧制作平台与本地部署版：可落地动态漫画项目" />
+    <meta
+      name="twitter:description"
+      content="把 AI漫剧制作需要的角色定妆、AI分镜、九宫格预演、关键帧、本地部署和私有化部署咨询放进一个明确入口。"
+    />
+  <meta name="twitter:image" content="http://localhost:3005/og-studio-overview.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=18" />
+    <link rel="stylesheet" href="/styles/seo-landing.css?v=18" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "AI漫剧制作平台与本地部署版",
+        "url": "http://localhost:3005/ai-motion-comic-generator.html",
+        "description": "拾光导演 AI Director 面向可落地 AI漫剧制作、动态漫画创作和小说改编项目，提供角色一致性、九宫格分镜、关键帧、视频交付和本地部署版咨询能力。",
+        "inLanguage": "zh-CN",
+        "about": ["AI漫剧", "AI漫剧源码", "本地部署版", "私有化部署", "动态漫画制作", "九宫格分镜", "角色一致性", "关键帧"],
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "拾光导演 AI Director",
+          "url": "http://localhost:3005/"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "AI漫剧和普通 AI视频最大的区别是什么？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI漫剧更强调角色造型稳定、镜头衔接和漫画感表达。它不是只追求单镜头效果，而是要让多段镜头在同一视觉体系里连续成立。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "为什么 AI漫剧适合用九宫格分镜？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "九宫格分镜适合先把同一镜头的多个视角和动作拆开预演，再选合适的构图做关键帧，这对动态漫画和漫剧的镜头设计尤其高效。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "拾光导演 更适合哪类 AI漫剧项目？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "更适合小说改编、剧情漫剧、角色连续出场的动态漫画项目，以及需要把角色、场景、道具沉淀成可复用资产并持续产出的团队创作。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "本地部署版适合哪些团队购买？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "本地部署版更适合需要私有化部署、二次开发、品牌定制、内部量产或对外服务客户的内容团队、MCN、工作室和创业团队。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "本地版是否支持自用和离线使用？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "商业合作可咨询本地部署、商用授权、品牌贴牌、私有化部署和二次开发方案，具体交付范围以双方确认的本地版方案为准。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="landing-shell">
+      <header class="topbar">
+        <a class="topbar-brand" href="/">
+          <img src="/logo.png?v=18" alt="拾光导演 AI Director logo" />
+          <span>拾光导演 AI Director</span>
+        </a>
+        <nav class="topbar-links" aria-label="站内导航">
+          <a class="nav-link" href="/ai-short-drama-generator.html">AI短剧</a>
+          <a class="nav-link active" href="/ai-motion-comic-generator.html">AI漫剧</a>
+          <a class="nav-link" href="/ai-motion-comic-generator.html">本地部署版</a>
+          <a class="nav-link" href="/ai-storyboard-generator.html">AI分镜</a>
+          <a class="nav-link" href="/workspace">返回工作台</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <span class="eyebrow">AI Motion Comic / Source Code</span>
+          <div class="hero-grid">
+            <div>
+              <h1>AI漫剧制作平台与本地部署版</h1>
+              <p>
+                如果你要做的是可持续上线的 AI漫剧项目，而不是一次性随机视频，真正重要的是角色一致性、分镜控制、关键帧和交付流程。拾光导演 AI Director 把角色定妆、AI分镜、九宫格预演、关键帧和视频合成串成完整流程，适合动态漫画、小说改编漫剧和需要落地生产的团队；本地版可咨询完整本地部署、私有化部署、二次开发、可自用和可自用方案。
+              </p>
+              <div class="chips" aria-label="关键词">
+                <span class="chip">AI漫剧制作</span>
+                <span class="chip">AI漫剧源码</span>
+                <span class="chip">本地部署版</span>
+                <span class="chip">私有化部署</span>
+                <span class="chip">动态漫画制作</span>
+                <span class="chip">九宫格分镜</span>
+                <span class="chip">可二开可自用</span>
+              </div>
+            </div>
+            <aside class="hero-side">
+              <div class="metric-card">
+                <strong>本地版交付</strong>
+                <span>本地部署 + 私有化部署</span>
+                <p>适合希望掌握代码、数据和品牌入口的团队，用于内部量产、客户定制或独立运营。</p>
+              </div>
+              <div class="metric-card">
+                <strong>项目落地</strong>
+                <span>策划 + 分镜 + 出片</span>
+                <p>先把角色、场景、镜头和资产体系沉淀下来，再推进成片，适合连续内容生产。</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <h2>面向可落地漫剧项目的本地部署版</h2>
+              <p class="section-intro">
+                搜索“AI漫剧源码”“AI短剧漫剧生成平台”“私有化部署”的用户，通常不是只想试一个工具，而是要把系统放进自己的业务里。本地版更适合需要完整源码、品牌定制、团队协作和长期运营的项目。
+              </p>
+            </div>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <h3>完整本地部署</h3>
+              <p>面向商业合作提供本地部署咨询，便于团队掌握前端工作台、项目流程、资产管理和后续扩展空间。</p>
+            </article>
+            <article class="card">
+              <h3>私有化部署与二开</h3>
+              <p>适合部署到自有服务器或私有云环境，再按业务需要接入模型、支付、会员、分销或客户管理系统。</p>
+            </article>
+            <article class="card">
+              <h3>可自用可自用</h3>
+              <p>适合内容工作室、MCN、企业内容团队和创业团队，用自己的品牌承接 AI漫剧制作、客户交付和项目运营。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <h2>AI漫剧为什么更依赖角色一致性</h2>
+              <p class="section-intro">
+                对动态漫画来说，人物脸型、服装、配色和镜头里的位置关系都影响沉浸感。只要角色在相邻镜头里频繁漂移，整部 AI漫剧就会立刻显得断裂。
+              </p>
+            </div>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <h3>角色要可复用</h3>
+              <p>角色定妆图和衣橱信息不是一次性素材，而是整个 AI漫剧里反复调用的视觉基准。</p>
+            </article>
+            <article class="card">
+              <h3>场景要连续</h3>
+              <p>同一地点的不同镜头需要保留统一的光线和空间关系，才能支撑对话、冲突和情绪推进。</p>
+            </article>
+            <article class="card">
+              <h3>构图要先预演</h3>
+              <p>九宫格分镜适合先比较不同视角，再选更合适的构图进入关键帧和视频生成阶段。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <h2>拾光导演 如何服务 AI漫剧项目落地</h2>
+              <p class="section-intro">这套流程更适合需要持续产出多镜头内容、希望画面语言统一，并准备把项目推向实际交付的创作者和团队。</p>
+            </div>
+          </div>
+          <div class="ordered">
+            <article class="ordered-item">
+              <strong>01</strong>
+              <div>
+                <h3>先拆故事，再定角色</h3>
+                <p>先把章节节奏和角色关系理顺，再沉淀角色的标准外观和多套造型，后面每个镜头才有统一参照。</p>
+              </div>
+            </article>
+            <article class="ordered-item">
+              <strong>02</strong>
+              <div>
+                <h3>用 AI分镜控制镜头语言</h3>
+                <p>把每个镜头拆成更明确的景别、动作和人物组合，必要时先做九宫格分镜预演，减少生成后反复返工。</p>
+              </div>
+            </article>
+            <article class="ordered-item">
+              <strong>03</strong>
+              <div>
+                <h3>用关键帧稳住画面</h3>
+                <p>先定义镜头开头和结尾的状态，让 AI漫剧镜头在过渡时保留角色外观与情绪连续性。</p>
+              </div>
+            </article>
+            <article class="ordered-item">
+              <strong>04</strong>
+              <div>
+                <h3>把镜头沉淀成可复用资产</h3>
+                <p>当同一角色、场景、道具会跨多个章节出现时，这种资产化方式比一次性出片更适合长期内容生产。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="faq">
+          <h2>AI漫剧常见问题</h2>
+          <p class="faq-intro">如果你在“动态漫画”“剧情短视频”“AI漫剧”之间犹豫，可以先看这几个判断点。</p>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>AI漫剧和 AI短剧能共用同一套流程吗？</h3>
+              <p>可以共用大部分底层流程，但 AI漫剧通常更在意画风统一和角色稳定性，AI短剧则更强调节奏和戏剧推进。</p>
+            </article>
+            <article class="faq-item">
+              <h3>九宫格分镜只适合漫画风吗？</h3>
+              <p>不是。只要你想先比较不同机位和动作方案，九宫格分镜都很有用，只是它在漫剧和动态漫画里价值更明显。</p>
+            </article>
+            <article class="faq-item">
+              <h3>做小说改编时，AI漫剧的优势是什么？</h3>
+              <p>小说改编更需要角色反复出场和情节连续表达，AI漫剧路径更容易把人物关系、情绪递进和画面风格稳定下来。</p>
+            </article>
+            <article class="faq-item">
+              <h3>本地部署版适合哪些团队购买？</h3>
+              <p>适合希望自有品牌运营、私有化部署、二次开发、对外接单或搭建内部 AI漫剧生产系统的团队。它更偏项目落地，不只是单次工具体验。</p>
+            </article>
+            <article class="faq-item">
+              <h3>是否支持可自用、可自用和二次开发？</h3>
+              <p>商业合作可咨询本地部署、商用授权、贴牌、私有化部署和二次开发范围。实际权益以双方确认的本地版方案为准。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="cta">
+          <div>
+            <h2>继续查看相关主题</h2>
+            <p>如果你要强化镜头设计与关键帧控制，可以继续看 AI分镜专题；如果你正在评估本地部署、私有化部署和本地版购买，请查看本地部署版页或直接发起商务咨询。</p>
+          </div>
+          <div class="cta-actions">
+            <a class="pill-link primary" href="#?subject=拾光导演%20AI%20Director%20%E5%95%86%E4%B8%9A%E7%89%88%E6%BA%90%E7%A0%81%E5%92%A8%E8%AF%A2">咨询本地版</a>
+            <a class="pill-link" href="/ai-motion-comic-generator.html">查看源码本地版</a>
+            <a class="pill-link" href="/workspace">进入工作台</a>
+            <a class="pill-link" href="/ai-short-drama-generator.html">查看 AI短剧</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div>拾光导演 AI Director 支持 AI漫剧制作、动态漫画分镜预演和角色一致性控制。</div>
+        <div class="footer-note">如需本地部署或自用，请进入工作台查看使用指南。本地版支持完整本地部署，数据保存在自己的设备上。</div>
+        <div class="footer-links">
+          <a class="nav-link" href="/">首页</a>
+          <a class="nav-link" href="/ai-short-drama-generator.html">AI短剧生成平台</a>
+          <a class="nav-link" href="/ai-motion-comic-generator.html">AI漫剧本地部署版</a>
+          <a class="nav-link" href="/ai-storyboard-generator.html">AI分镜生成器</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

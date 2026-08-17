@@ -1,0 +1,77 @@
+BigBanana Community License 1.0
+
+Copyright (c) 2026 BigBanana AI Director
+
+An official Chinese reference translation is available in LICENSE.zh-CN.md.
+If there is any inconsistency between the English version and the Chinese translation, the English version controls.
+
+This license applies to the source code and other materials in this repository unless a file states otherwise.
+
+1. Purpose
+
+This repository is provided under a source-available community license. It is intended for personal learning, research, evaluation, and other non-commercial uses. It is not an OSI-approved open source license.
+
+2. Rights Granted
+
+Subject to the terms of this license, you may:
+
+- use, copy, and run the Software for personal, educational, research, testing, and other non-commercial purposes;
+- modify the Software and create derivative works;
+- share the original or modified Software for non-commercial purposes.
+
+3. Conditions
+
+If you use, modify, or redistribute the Software, you must:
+
+- keep existing copyright, attribution, and license notices;
+- include a copy of this license with any substantial portion of the Software;
+- clearly state whether you changed the Software;
+- not imply that BigBanana, AntSK, or the authors endorse you or your use.
+
+4. Commercial Use Restrictions
+
+You may not, without prior written authorization from the copyright holder:
+
+- use the Software in connection with commercial activity, paid services, or revenue-generating operations;
+- sell, sublicense, lease, or commercially distribute the Software or a derivative work;
+- provide the Software as a hosted service, managed service, SaaS product, OEM offering, or white-label solution for third parties;
+- use the Software internally within a business for production commercial operations.
+
+5. Trademarks, Brands, and Logos
+
+This license does not grant any right to use any project name, product name, domain name, logo, icon, visual identity, or other brand asset of BigBanana, AntSK, or the authors.
+
+If you distribute a modified version, you must remove or replace official brand identifiers unless you have separate written permission.
+
+Brand usage is governed by the repository trademark policy and any separate written agreement.
+
+6. Hosted Services and API Endpoints
+
+This license does not grant any right to access, resell, mirror, proxy, bundle, or rely on any official hosted service, account system, quota, or API endpoint operated by the authors or their affiliates, including api.antsk.cn.
+
+Use of any official API or hosted service is governed by separate service terms, pricing, quotas, and access rules. Access may be changed, limited, or revoked separately from this license.
+
+7. Commercial Licensing
+
+Commercial rights, including commercial deployment, private deployment, OEM distribution, white-label use, brand authorization, and production support, require a separate commercial license.
+
+Commercial licensing contact:
+
+Email: antskpro@qq.com
+GitHub: https://github.com/shuyu-labs/BigBanana-AI-Director
+
+8. Termination
+
+Your rights under this license terminate automatically if you violate its terms. If the violation is cured within 30 days after you become aware of it, the copyright holder may choose to restore your rights.
+
+9. Disclaimer of Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
+
+10. Limitation of Liability
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF OR OTHER DEALINGS IN THE SOFTWARE.
+
+11. Entire License Scope
+
+This license governs copyright permission for the repository contents only. Service access, trademark usage, support obligations, and commercial permissions are outside this license unless expressly granted in a separate written agreement.

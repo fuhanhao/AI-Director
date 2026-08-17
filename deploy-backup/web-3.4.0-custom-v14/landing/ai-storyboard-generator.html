@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI分镜生成器：九宫格分镜、关键帧、角色一致性 - 拾光导演 AI Director</title>
+    <meta
+      name="description"
+      content="拾光导演 AI Director 适合 AI分镜生成、九宫格分镜预演与关键帧控制，支持把剧本拆成镜头、锁定景别与动作，并结合角色一致性推进 AI短剧和 AI漫剧制作。"
+    />
+    <meta
+      name="keywords"
+      content="AI分镜,AI分镜生成,分镜生成器,九宫格分镜,关键帧,角色一致性,镜头设计,AI短剧,AI漫剧"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="http://localhost:3005/ai-storyboard-generator.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://localhost:3005/ai-storyboard-generator.html" />
+    <meta property="og:title" content="AI分镜生成器：九宫格分镜、关键帧、角色一致性" />
+    <meta
+      property="og:description"
+      content="面向 AI短剧与 AI漫剧的 AI分镜工作流，帮助你先确定镜头，再进入视频生成。"
+    />
+  <meta property="og:image" content="http://localhost:3005/og-studio-overview.png" />
+    <meta property="og:image:alt" content="拾光导演 AI Director 项目工作区界面截图" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI分镜生成器：九宫格分镜、关键帧、角色一致性" />
+    <meta
+      name="twitter:description"
+      content="用 AI分镜、关键帧和九宫格预演，先把镜头设计定下来，再驱动 AI短剧和 AI漫剧生成。"
+    />
+  <meta name="twitter:image" content="http://localhost:3005/og-studio-overview.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=18" />
+    <link rel="stylesheet" href="/styles/seo-landing.css?v=18" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "AI分镜生成器",
+        "url": "http://localhost:3005/ai-storyboard-generator.html",
+        "description": "拾光导演 AI Director 面向 AI分镜生成、九宫格分镜预演和关键帧控制，帮助创作者先设计镜头再生成视频。",
+        "inLanguage": "zh-CN",
+        "about": ["AI分镜", "九宫格分镜", "关键帧", "角色一致性", "镜头设计"],
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "拾光导演 AI Director",
+          "url": "http://localhost:3005/"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "AI分镜生成器主要解决什么问题？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI分镜生成器主要解决镜头难以控制的问题。它会把剧本拆成更明确的景别、动作、角色和视角，再配合关键帧去锁定镜头的起止状态。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "九宫格分镜和关键帧是什么关系？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "九宫格分镜适合先预演同一镜头的多个视角与动作方案，关键帧则适合把最终选中的画面稳定下来。前者偏比较与选择，后者偏锁定与执行。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "AI分镜为什么能提升 AI短剧和 AI漫剧质量？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "因为 AI分镜会提前确认故事推进方式和镜头语言，再结合角色一致性与场景连续性，视频阶段就不需要完全依赖模型随机发挥。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="landing-shell">
+      <header class="topbar">
+        <a class="topbar-brand" href="/">
+          <img src="/logo.png?v=18" alt="拾光导演 AI Director logo" />
+          <span>拾光导演 AI Director</span>
+        </a>
+        <nav class="topbar-links" aria-label="站内导航">
+          <a class="nav-link" href="/ai-short-drama-generator.html">AI短剧</a>
+          <a class="nav-link" href="/ai-motion-comic-generator.html">AI漫剧</a>
+          <a class="nav-link active" href="/ai-storyboard-generator.html">AI分镜</a>
+          <a class="nav-link" href="/workspace">返回工作台</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <span class="eyebrow">AI Storyboard</span>
+          <div class="hero-grid">
+            <div>
+              <h1>AI分镜生成器</h1>
+              <p>
+                对 AI短剧和 AI漫剧来说，真正决定成片上限的往往不是“能不能生成视频”，而是“镜头能不能先被设计好”。拾光导演 AI Director 把 AI分镜生成、九宫格分镜预演、关键帧和角色一致性控制组合在一起，让你先确认镜头语言，再进入视频合成阶段。
+              </p>
+              <div class="chips" aria-label="关键词">
+                <span class="chip">AI分镜生成</span>
+                <span class="chip">九宫格分镜</span>
+                <span class="chip">关键帧</span>
+                <span class="chip">角色一致性</span>
+                <span class="chip">镜头设计</span>
+              </div>
+            </div>
+            <aside class="hero-side">
+              <div class="metric-card">
+                <strong>核心价值</strong>
+                <span>先定镜头再出片</span>
+                <p>把视角、构图、动作和角色关系前置确认，能显著降低镜头随机性。</p>
+              </div>
+              <div class="metric-card">
+                <strong>适合的项目</strong>
+                <span>连续剧情视频</span>
+                <p>只要你的内容依赖多镜头推进，AI分镜就比直接一键视频生成更有价值。</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <h2>一个好用的 AI分镜生成器应该具备什么</h2>
+              <p class="section-intro">
+                如果工具只能吐出一段模糊镜头描述，那它很难支撑真正的剧情生产。真正有价值的 AI分镜，必须能和角色、场景、动作以及后续关键帧生成配合起来。
+              </p>
+            </div>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <h3>能拆镜头</h3>
+              <p>把故事文本拆成镜头级动作和场景变化，而不是只输出笼统的画面总结。</p>
+            </article>
+            <article class="card">
+              <h3>能做预演</h3>
+              <p>九宫格分镜适合比较不同视角与机位，帮助你在真正生成前先做筛选。</p>
+            </article>
+            <article class="card">
+              <h3>能接关键帧</h3>
+              <p>分镜不该停留在文案层，应该能够自然衔接到关键帧和视频执行阶段。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <h2>拾光导演 的 AI分镜工作方式</h2>
+              <p class="section-intro">它不是孤立的“分镜生成器页面”，而是一个可以接着推进角色、关键帧和视频的完整工作流。</p>
+            </div>
+          </div>
+          <div class="ordered">
+            <article class="ordered-item">
+              <strong>01</strong>
+              <div>
+                <h3>从剧本进入分镜</h3>
+                <p>先把场景、角色和剧情节点结构化，再为每个段落安排合适的镜头数量与镜头目标。</p>
+              </div>
+            </article>
+            <article class="ordered-item">
+              <strong>02</strong>
+              <div>
+                <h3>生成可执行的镜头描述</h3>
+                <p>把景别、动作、出场角色和镜头目的写清楚，避免视频模型只能凭模糊概念去猜测画面。</p>
+              </div>
+            </article>
+            <article class="ordered-item">
+              <strong>03</strong>
+              <div>
+                <h3>用九宫格预演候选方案</h3>
+                <p>同一镜头可先拆成多个角度预演，再挑选更合适的构图进入关键帧。这样比事后返工更省成本。</p>
+              </div>
+            </article>
+            <article class="ordered-item">
+              <strong>04</strong>
+              <div>
+                <h3>用关键帧推动视频执行</h3>
+                <p>当起始帧和结束帧已经明确，AI短剧和 AI漫剧的镜头过渡会更稳定，也更容易保持角色一致性。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="faq">
+          <h2>AI分镜常见问题</h2>
+          <p class="faq-intro">如果你正在判断“先分镜”有没有必要，可以看下面这些高频问题。</p>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>AI分镜适合所有视频项目吗？</h3>
+              <p>不是所有项目都需要。但只要内容依赖连续剧情、多角色出场或明确的镜头节奏，AI分镜通常都值得先做。</p>
+            </article>
+            <article class="faq-item">
+              <h3>九宫格分镜会不会增加步骤？</h3>
+              <p>会增加一步预演，但通常能减少后面的返工，尤其在需要挑选更好构图或更合理机位时，这一步非常划算。</p>
+            </article>
+            <article class="faq-item">
+              <h3>AI分镜和角色一致性为什么要一起看？</h3>
+              <p>因为镜头设计里一定会涉及谁出场、谁靠近镜头、谁在背景。没有稳定角色资产，分镜再好也会在执行时失真。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="cta">
+          <div>
+            <h2>继续查看相关主题</h2>
+            <p>AI分镜通常不会单独存在，它更多服务于 AI短剧或 AI漫剧项目。继续往下看，可以了解它在不同创作场景中的具体用法。</p>
+          </div>
+          <div class="cta-actions">
+            <a class="pill-link primary" href="/workspace">进入工作台</a>
+            <a class="pill-link" href="/ai-short-drama-generator.html">查看 AI短剧</a>
+            <a class="pill-link" href="/ai-motion-comic-generator.html">查看 AI漫剧</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div>拾光导演 AI Director 让 AI分镜、九宫格预演、关键帧和视频执行成为一条可持续迭代的链路。</div>
+        <div class="footer-note">如需本地部署或自用，请进入工作台查看使用指南。本地版支持完整本地部署，数据保存在自己的设备上。</div>
+        <div class="footer-links">
+          <a class="nav-link" href="/">首页</a>
+          <a class="nav-link" href="/ai-short-drama-generator.html">AI短剧生成平台</a>
+          <a class="nav-link" href="/ai-motion-comic-generator.html">AI漫剧制作平台</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
