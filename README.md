@@ -9,7 +9,9 @@
 
 ## 界面展示
 
-> 工作台截图待补充：将截图放入 `docs/screenshots/` 后，在此逐一展示。
+![拾光导演界面展示（一）](docs/screenshots/screenshot-1.png)
+
+![拾光导演界面展示（二）](docs/screenshots/screenshot-2.png)
 
 ## 核心理念：关键帧驱动 (Keyframe-Driven)
 
