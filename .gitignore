@@ -24,3 +24,8 @@ deploy-backup/sw.original.js
 # 系统文件
 Thumbs.db
 Desktop.ini
+
+# 本地分析文档（仅保留本地，不入库）
+docs/PRD.md
+docs/competitive-analysis.md
+docs/market-analysis.md
