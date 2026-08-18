@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="platform/LICENSE"><img src="https://img.shields.io/badge/License-BigBanana%20Community-blue?style=flat-square" alt="License"></a>
-  <a href="https://github.com/fuhanhao/AI-Director/stargazers"><img src="https://img.shields.io/github/stars/fuhanhao/AI-Director?style=flat-square" alt="GitHub Stars"></a>
+  <a href="https://github.com/fuhanhao/AI-Time/stargazers"><img src="https://img.shields.io/github/stars/fuhanhao/AI-Time?style=flat-square" alt="GitHub Stars"></a>
   <a href="#快速开始"><img src="https://img.shields.io/badge/Quick%20Start-快速开始-2496ed?style=flat-square" alt="Quick Start"></a>
 </p>
 
@@ -204,7 +204,7 @@ docker compose down
 
 ## 参与贡献
 
-有问题或想法，欢迎提 [Issue](https://github.com/fuhanhao/AI-Director/issues)，也欢迎直接提 [PR](https://github.com/fuhanhao/AI-Director/pulls)。
+有问题或想法，欢迎提 [Issue](https://github.com/fuhanhao/AI-Time/issues)，也欢迎直接提 [PR](https://github.com/fuhanhao/AI-Time/pulls)。
 
 想本地跑起来？按上面的快速开始启动 Docker 即可；工作台所有数据都在本地，随便折腾。
 

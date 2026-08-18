@@ -1,7 +1,7 @@
 {
   "id": "/?source=pwa",
-  "name": "拾光导演 AI Director",
-  "short_name": "拾光导演",
+  "name": "拾光演绎 AI Time",
+  "short_name": "拾光演绎",
   "description": "AI漫剧制作工作台，支持剧本策划、角色资产、分镜、关键帧、视频合成与项目交付。",
   "lang": "zh-CN",
   "start_url": "/workspace?source=pwa",
@@ -32,7 +32,7 @@
       "src": "/og-studio-overview.png",
       "sizes": "1440x900",
       "type": "image/png",
-      "label": "拾光导演 AI Director 工作台总览",
+      "label": "拾光演绎 AI Time 工作台总览",
       "form_factor": "wide"
     }
   ],

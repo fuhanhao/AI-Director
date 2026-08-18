@@ -1,4 +1,4 @@
-/* 拾光导演 · 亮色主题 - 语义化颜色令牌（淡紫星夜 + 星夜蓝紫 + 星光金） */
+/* 拾光演绎 · 亮色主题 - 语义化颜色令牌（淡紫星夜 + 星夜蓝紫 + 星光金） */
 [data-theme="light"] {
   --bg-base: #EFEBF8;
   --bg-primary: #FFFFFF;
@@ -85,7 +85,7 @@
   --tag-purple-hover: rgba(124, 58, 237, 0.08);
 }
 
-/* 拾光导演 · 亮色背景：淡紫星夜 + 蓝紫/星光金柔光 */
+/* 拾光演绎 · 亮色背景：淡紫星夜 + 蓝紫/星光金柔光 */
 [data-theme="light"] body {
   background:
     radial-gradient(circle at 12% 0%, rgba(91, 79, 216, 0.16), transparent 42%),
@@ -95,7 +95,7 @@
   background-attachment: fixed;
 }
 
-/* 覆盖首页/工作区根容器上的旧版硬编码琥珀渐变，统一为拾光导演星夜配色 */
+/* 覆盖首页/工作区根容器上的旧版硬编码琥珀渐变，统一为拾光演绎星夜配色 */
 [data-theme="light"] #root > div {
   background-image:
     radial-gradient(circle at 50% -10%, rgba(91, 79, 216, 0.18), transparent 50%),
