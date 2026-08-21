@@ -11,6 +11,9 @@ drama_profile2/
 # 真实 API Key 备份（严禁入库）
 KEYS.local.txt
 
+# 本地项目备份导出（严禁入库）
+backups/
+
 # 真实 key 的 web bundle 不入库，统一用脱敏模板
 deploy-backup/web-3.4.0-custom-v14/assets/index-D9jX3f3S.js
 

@@ -18,7 +18,13 @@ docker tag registry.cn-hangzhou.aliyuncs.com/tree456/bigbanana-ai-director:newap
 docker tag registry.cn-hangzhou.aliyuncs.com/tree456/bigbanana-ai-director:cutos-3.4.0 shiguang-director:cutos-3.4.0
 
 # 3. 构建补丁版前端（基于 web-3.4.0-original，覆盖本地解锁版静态资源）
-docker build -f platform/build/web-v26/Dockerfile -t shiguang-director:web-v26 .
+# 如需把真实模型 Key 内嵌到镜像（可选，不填则由创作者在界面自行配置）：
+#   在仓库根目录准备 KEYS.local.txt（已被 .gitignore 排除，严禁提交），格式：
+#     DEEPSEEK_KEY=sk-xxx
+#     IMG_KEY=sk-xxx
+#     AUD_KEY=sk-xxx
+#     VID_KEY=sk-xxx
+docker build --build-arg-file KEYS.local.txt -f platform/build/web-v26/Dockerfile -t shiguang-director:web-v26 .
 
 # 4. 构建百炼转接服务
 docker build -t shiguang-director:dashscope-relay-1.5 platform/relay

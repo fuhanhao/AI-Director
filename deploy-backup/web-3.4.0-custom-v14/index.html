@@ -14,13 +14,36 @@
          遗留入口的元素做 display:none 隐藏，绝不删除节点，避免破坏 React 渲染。 */
       (function () {
         var LEGACY_TEXT = [
-          '商业版 / 商业授权', '商业版/商业授权', '邮件咨询', '官网',
-          '使用手册', '立即购买', '使用教程', '打开账号站点',
+          '商业版 / 商业授权', '商业版/商业授权', '商业版', '邮件咨询', '官网',
+          '使用手册', '立即购买', '使用教程', '打开账号站点', '账户中心',
           'Buy now', 'Setup guide', 'User guide', 'Open account site',
-          '充值', '去充值', '邀请', '邀请码', '邀请链接', '邀请奖励', '去邀请'
+          '充值', '去充值', '邀请', '邀请码', '邀请链接', '邀请奖励', '去邀请',
+          '加入交流群', 'DirectorHub', '自媒体创作平台'
         ];
+        /* 商业化模型/渠道名称前缀：只保留创作者自己的自定义预置模型 */
+        var COMMERCIAL_PREFIXES = [
+          'GPT-', 'Claude', 'Gemini', 'Sora', 'Veo ',
+          'Doubao', 'HappyHorse', 'Vidu', 'Volcengine',
+          '拾光演绎 API', '推荐使用 拾光演绎'
+        ];
+        /* 登录 / 账户 / 个人信息入口（图标按钮靠 aria-label 识别） */
+        var ACCOUNT_TEXT = ['账户中心', '账号中心', '个人信息', '个人中心'];
+        var ACCOUNT_ARIA = ['账户中心', '账号中心', '个人信息', '个人中心', '登录', '注册', 'account', 'profile', 'signin', 'sign in'];
         function norm(s) { return (s || '').replace(/\s+/g, ' ').trim(); }
         function hide(el) { if (!el || el.__sg_hidden) return; el.__sg_hidden = true; el.style.display = 'none'; }
+        function hideCard(el) {
+          var p = el;
+          for (var i = 0; i < 4 && p; i++) {
+            p = p.parentElement;
+            if (!p || p.id === 'root' || p === document.body) break;
+            var cls = String(p.className || '');
+            if (/rounded-2xl|rounded-xl|rounded-3xl|card|border/i.test(cls)) {
+              p.__sg_hidden = true;
+              p.style.display = 'none';
+              break;
+            }
+          }
+        }
         function clean() {
           try {
             var all = document.querySelectorAll('a,button,span');
@@ -30,13 +53,50 @@
               if (!el || el.__sg_hidden) continue;
               var txt = norm(el.textContent);
               var href = (el.getAttribute && el.getAttribute('href')) || '';
+              var aria = (el.getAttribute && (el.getAttribute('aria-label') || el.getAttribute('title'))) || '';
               var hit = false;
               for (var j = 0; j < LEGACY_TEXT.length; j++) {
-                if (txt === LEGACY_TEXT[j]) { hit = true; break; }
+                if (txt === LEGACY_TEXT[j] || txt.indexOf(LEGACY_TEXT[j]) === 0) { hit = true; break; }
+              }
+              if (!hit) {
+                for (var a2 = 0; a2 < ACCOUNT_TEXT.length; a2++) {
+                  if (txt.indexOf(ACCOUNT_TEXT[a2]) !== -1 && txt.length < 120) { hit = true; break; }
+                }
+              }
+              if (!hit) {
+                var al = aria.toLowerCase();
+                for (var a3 = 0; a3 < ACCOUNT_ARIA.length; a3++) {
+                  if (al.indexOf(ACCOUNT_ARIA[a3].toLowerCase()) !== -1) { hit = true; break; }
+                }
               }
               if (hit || href.indexOf('mailto:') === 0 || href.indexOf('tree456.com') !== -1) {
                 hide(el);
                 changed.push(el);
+              }
+            }
+            /* 商业化模型/渠道卡片（div 结构）单独处理：只隐藏“卡片本体”，跳过容器 */
+            var divs = document.querySelectorAll('div');
+            for (var d = 0; d < divs.length; d++) {
+              var dv = divs[d];
+              if (!dv || dv.__sg_hidden) continue;
+              var dt0 = norm(dv.textContent);
+              var isGroupHeader = dt0.indexOf('Vidu 未配置渠道 Key') === 0 || dt0.indexOf('Volcengine Ark 未配置渠道 Key') === 0;
+              if (isGroupHeader && dt0.length < 400) { hide(dv); continue; }
+              var dcls = String(dv.className || '');
+              if (/overflow-y-auto|space-y|max-w-3xl|inset-0/.test(dcls)) continue;
+              var dt = dt0;
+              if (dt.length >= 900) continue;
+              var dkids = dv.children || [];
+              var hasUse = false;
+              var useBtns = dv.querySelectorAll('button');
+              for (var dd = 0; dd < useBtns.length; dd++) {
+                if (/^(使用|当前使用)$/.test((useBtns[dd].innerText || '').trim())) { hasUse = true; break; }
+              }
+              var isBanner = dt.indexOf('推荐使用 拾光演绎') === 0;
+              var isGroup = dt.indexOf('Volcengine Ark') === 0 || dt.indexOf('Vidu ') === 0;
+              if (!hasUse && !isBanner && !isGroup) continue;
+              for (var k3 = 0; k3 < COMMERCIAL_PREFIXES.length; k3++) {
+                if (dt.indexOf(COMMERCIAL_PREFIXES[k3]) === 0) { hide(dv); break; }
               }
             }
             /* 被隐藏项所在的容器若只剩“·”分隔符/无可见内容，则一并隐藏容器（如首页页脚那行） */
@@ -113,16 +173,16 @@
     <meta name="twitter:image:alt" content="拾光演绎 AI Time 项目工作区界面截图" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=31" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png?v=31" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=31" />
-    <link rel="manifest" href="/manifest.webmanifest?v=31" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png?v=32" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=32" />
+    <link rel="manifest" href="/manifest.webmanifest?v=32" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#0A0C16" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#F7F4EF" media="(prefers-color-scheme: light)" />
     <meta name="msapplication-TileColor" content="#0A0C16" />
-    <meta name="msapplication-TileImage" content="/logo.png?v=31" />
+    <meta name="msapplication-TileImage" content="/logo.png?v=32" />
     <meta name="apple-mobile-web-app-title" content="拾光演绎" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -364,10 +424,10 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/styles/base.css?v=31" />
+    <link rel="stylesheet" href="/styles/base.css?v=32" />
     <!-- 主题 CSS 放在内联样式之后，确保 [data-theme] 的变量优先级高于 :root 回退 -->
-    <link rel="stylesheet" href="/styles/theme-dark.css?v=31" />
-    <link rel="stylesheet" href="/styles/theme-light.css?v=31" />
+    <link rel="stylesheet" href="/styles/theme-dark.css?v=32" />
+    <link rel="stylesheet" href="/styles/theme-light.css?v=32" />
 
   <script type="importmap">
 {
@@ -380,7 +440,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-D9jX3f3S.js?v=31"></script>
+  <script type="module" crossorigin src="/assets/index-D9jX3f3S.js?v=32"></script>
   <link rel="modulepreload" crossorigin href="/assets/icons-CC3OaP0_.js">
   <link rel="modulepreload" crossorigin href="/assets/motion-0yc2g3ly.js">
   <link rel="stylesheet" crossorigin href="/assets/index-YggY4CaN.css">
